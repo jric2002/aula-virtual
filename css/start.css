@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+/* GENERAL */
+:root {
+	--black-color: #000000;
+	--gray-color: #1f1f1f;
+	--green-color: #98ca3f;
+	--yellow-color: #fcee0a;
+	--sky-blue-color: #2490fc;
+	--white-color: #ffffff;
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-color: var(--gray-color, #1f1f1f);
+    font-family: sans-serif;
+}
+
+/* Start */
+.start {
+    height: 100vh;
+    background-image: radial-gradient(farthest-side, rgba(36, 144, 252, 0.15), transparent);
+    display: grid;
+    grid-template-columns: [x0] 1fr [x1];
+    grid-template-rows: [y0] 0.25fr [y1] 3fr [y2];
+}
+.start .header {
+    grid-column: x0 / x1;
+    grid-row: y0 / y1;
+    box-shadow: 0 5px 5px 1px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.start .header .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.start .header .logo svg {
+    width: 2rem;
+    color: var(--white-color, #ffffff);
+    margin: 0.5rem 0.75rem;
+}
+.start .header h1 {
+    color: var(--white-color, #ffffff);
+    font-size: 20px;
+    margin: 0.5rem 0.75rem;
+}
+.start div {
+    grid-column: x0 / x1;
+    grid-row: y1 / y2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.start div a {
+    width: 150px;
+    text-align: center;
+    text-decoration: none;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1.5rem;
+    transition: background-color 0.25s linear;
+}
+.start div a:hover {
+    background-color: var(--sky-blue-color, #2490fc);
+}
+.start div a svg {
+    width: 4rem;
+    color: var(--white-color, #ffffff);
+}
+.start div a h1 {
+    color: var(--white-color, #ffffff);
+    font-size: 24px;
+}

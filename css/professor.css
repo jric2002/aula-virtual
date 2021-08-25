@@ -1,0 +1,210 @@
+@charset "UTF-8";
+
+/* GENERAL */
+:root {
+	--black-color: #000000;
+	--gray-color: #1f1f1f;
+	--green-color: #98ca3f;
+	--yellow-color: #fcee0a;
+	--sky-blue-color: #2490fc;
+	--white-color: #ffffff;
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-color: var(--gray-color, #1f1f1f);
+    font-family: sans-serif;
+}
+
+/* Professor */
+.professor {
+    height: 100vh;
+}
+.professor {
+    height: 100vh;
+    background-image: radial-gradient(farthest-side, rgba(36, 144, 252, 0.15), transparent);
+    display: grid;
+    grid-template-columns: [x0] 1fr [x1];
+    grid-template-rows: [y0] 0.25fr [y1] 3fr [y2];
+}
+.professor .header {
+    grid-column: x0 / x1;
+    grid-row: y0 / y1;
+    box-shadow: 0 5px 5px 1px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.professor .header .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.professor .header .logo svg {
+    width: 2rem;
+    color: var(--white-color, #ffffff);
+    margin: 0.5rem 0.75rem;
+}
+.professor .header div, .professor .header div a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.professor .header div a {
+    position: relative;
+    margin: 0.5rem 0.75rem;
+}
+.professor .header div a::after {
+    content: "Cerrar sesión";
+    text-align: center;
+    color: var(--white-color, #ffffff);
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 10px;
+    position: absolute;
+    top: 44px;
+    left: -60px;
+    transform: scale(0 , 0);
+    transition: transform 0.25s linear;
+    padding: 0.5rem;
+}
+.professor .header div a:hover::after {
+    transform: scale(1, 1);
+}
+.professor .header div a svg {
+    width: 2rem;
+    color: var(--white-color, #ffffff);
+}
+.professor .header div h1 {
+    color: var(--white-color, #ffffff);
+    font-size: 20px;
+    margin: 0.5rem 0.75rem;
+}
+.professor .exams {
+    grid-column: x0 / x1;
+    grid-row: y1 / y2;
+    color: var(--white-color, #ffffff);
+    display: grid;
+    grid-template-columns: [x0] 1fr [x1];
+    grid-template-rows: [y0] 0.25fr [y1] 2fr [y2];
+}
+.professor .exams .panel {
+    grid-column: x0 / x1;
+    grid-row: y0 / y1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2.5rem 1rem 0;
+}
+.professor .exams .panel h1 {
+    font-size: 30px;
+}
+.professor .exams .panel div {
+    color: var(--white-color, #ffffff);
+    background-color: var(--sky-blue-color, #2490fc);
+    cursor: pointer;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.1rem 0.25rem;
+    transform: scale(1, 1);
+    transition-property: background-color, transform;
+    transition-duration: 0.25s;
+    transition-timing-function: linear;
+}
+.professor .exams .panel div:hover {
+    transform: scale(1.1, 1.1);
+    background-color: var(--green-color, #98ca3f);
+}
+.professor .exams .panel div svg {
+    width: 1.5rem;
+    margin: 0.25rem;
+}
+.professor .exams .panel div p {
+    margin: 0.25rem;
+}
+.professor .exams table {
+    grid-column: x0 / x1;
+    grid-row: y1 / y2;
+    align-self: flex-start;
+    border-collapse: collapse;
+    margin: 1.5rem 1rem;
+}
+.professor .exams table, .professor .exams thead tr th, .professor .exams table tbody tr td {
+    border: 1px solid rgb(255, 255, 255);
+}
+.professor .exams table thead tr th, .professor .exams table tbody tr td {
+    padding: 0.75rem;
+}
+.professor .exams table tbody tr td a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.professor .exams table tbody tr td a svg {
+    width: 1rem;
+    color: var(--white-color, #ffffff);
+    border-radius: 5px;
+    padding: 0.25rem;
+}
+.professor .exams table tbody tr td .edit-exam svg {
+    background-color: var(--green-color, #98ca3f);
+}
+.professor .exams table tbody tr td .delete-exam svg {
+    background-color: #f00;
+}
+
+/* Modal */
+.professor .exams .modal {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.professor .exams .modal form {
+    padding: 0.5rem;
+}
+.professor .exams .modal form div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0.75rem;
+}
+.professor .exams .modal form div .data {
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    padding: 0.5rem 0.75rem;
+    margin: 0.5rem 0;
+}
+.professor .exams .modal form .add-question-button {
+    cursor: pointer;
+    font-size: 16px;
+    background-color: var(--sky-blue-color, #2490fc);
+    text-align: center;
+    border-radius: 10px;
+    padding: 0.5rem 0.75rem;
+    transition: background-color 0.25s linear;
+}
+.professor .exams .modal form .add-question-button:hover {
+    background-color: var(--green-color, #98ca3f);
+}
+.professor .exams .modal form .submit input {
+    font-size: 16px;
+    width: 100%;
+    color: var(--white-color, #ffffff);
+    background-color: var(--sky-blue-color, #2490fc);
+    border-radius: 10px;
+    border: none;
+    padding: 0.5rem 0.75rem;
+}
